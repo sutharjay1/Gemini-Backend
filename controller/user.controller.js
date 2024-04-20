@@ -29,7 +29,8 @@ const handleUserRegister = async (req, res) => {
       .cookie('token', token, {
         secure: true,
         sameSite: 'None',
-        httpOnly: true,
+        httpOnly: false,
+        partitioned: true,
       })
       .json({
         message: 'User Registered successfully',
@@ -65,7 +66,8 @@ const handleUserLogin = async (req, res) => {
       .cookie('token', token, {
         secure: true,
         sameSite: 'None',
-        httpOnly: true,
+        httpOnly: false,
+        partitioned: true,
       })
       .json({
         message: 'Login successfully',
