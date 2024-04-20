@@ -20,6 +20,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cookieParser());
 
+app.get('/', (req, res) => {
+  res.status(200).json({ message: 'Hello from server!' });
+});
+
 app.use('/api/auth', userRouter);
 
 app.use('/api/v1', promptRouter);
