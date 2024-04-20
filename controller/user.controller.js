@@ -35,6 +35,7 @@ const handleUserRegister = async (req, res) => {
       .json({
         message: 'User Registered successfully',
         user: { ...user, password: undefined },
+        token: token,
       });
   } catch (error) {
     console.error('Error registering user:', error);
@@ -76,6 +77,7 @@ const handleUserLogin = async (req, res) => {
       .json({
         message: 'Login successfully',
         user: { ...user.toObject(), password: undefined },
+        token: token,
       });
   } catch (error) {
     console.error('Error logging in user:', error);
