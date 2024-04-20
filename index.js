@@ -13,7 +13,7 @@ connectToDB();
 
 app.use(
   cors({
-    origin: 'http://localhost:5173',
+    origin: ['http://localhost:5173', 'https://gemini-x-phi.vercel.app'],
     credentials: true,
   })
 );
