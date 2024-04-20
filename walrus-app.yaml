@@ -1,0 +1,31 @@
+alerts:
+- rule: DEPLOYMENT_FAILED
+- rule: DOMAIN_FAILED
+envs:
+- key: VITE_BACKEND_URI
+  scope: RUN_AND_BUILD_TIME
+  value: https://lobster-app-ozc4q.ondigitalocean.app
+features:
+- buildpack-stack=ubuntu-22
+ingress:
+  rules:
+  - component:
+      name: geminix
+    match:
+      path:
+        prefix: /
+name: walrus-app
+region: blr
+services:
+- build_command: npm run build
+  environment_slug: node-js
+  github:
+    branch: main
+    deploy_on_push: true
+    repo: sutharjay1/GeminiX
+  http_port: 8080
+  instance_count: 1
+  instance_size_slug: basic-xs
+  name: geminix
+  run_command: npm run start
+  source_dir: /
