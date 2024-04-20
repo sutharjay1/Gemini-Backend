@@ -27,7 +27,7 @@ const handleUserRegister = async (req, res) => {
     res
       .status(200)
       .cookie('token', token, {
-        secure: false,
+        secure: true,
         sameSite: 'None',
       })
       .json({
@@ -62,7 +62,7 @@ const handleUserLogin = async (req, res) => {
     res
       .status(200)
       .cookie('token', token, {
-        secure: false,
+        secure: true,
         sameSite: 'None',
       })
       .json({
