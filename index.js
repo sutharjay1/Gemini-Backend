@@ -7,7 +7,7 @@ import promptRouter from './routes/prompt.router.js';
 import connectToDB from './connecToDB.js';
 
 const app = express();
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 
 connectToDB();
 
