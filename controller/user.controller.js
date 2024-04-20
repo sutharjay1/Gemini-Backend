@@ -26,10 +26,7 @@ const handleUserRegister = async (req, res) => {
 
     res
       .status(200)
-      .cookie('token', token, {
-        withCredentials: true,
-        httpOnly: false,
-      })
+      .cookie('token', token, {})
       .json({
         message: 'User Registered successfully',
         user: { ...user, password: undefined },
@@ -61,10 +58,7 @@ const handleUserLogin = async (req, res) => {
 
     res
       .status(200)
-      .cookie('token', token, {
-        withCredentials: true,
-        httpOnly: false,
-      })
+      .cookie('token', token, {})
       .json({
         message: 'Login successfully',
         user: { ...user.toObject(), password: undefined },
