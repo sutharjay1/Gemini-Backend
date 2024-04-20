@@ -50,6 +50,10 @@ const handleUserLogin = async (req, res) => {
 
     const user = await User.findOne({ email }).populate('prompts').exec();
 
+    if (!email || !password) {
+      return res.status(400).json({ message: 'All fields are required' });
+    }
+
     if (!user) {
       return res.status(400).json({ message: 'User not found' });
     }
